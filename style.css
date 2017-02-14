@@ -1,0 +1,183 @@
+/*CENTER TEXT*/
+
+.centerText {
+	text-align: center;
+}
+
+/*CENTER IMAGE*/
+
+.centerBlock { 
+
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/*CENTER OTHER*/
+
+.center {
+
+	margin-left:auto;
+	margin-right:auto;
+}
+
+/*BUTTONS*/
+
+.btn-lg {
+
+	width: 200px;
+	margin-bottom: 20px;
+}
+
+/*CONTAINER*/
+
+.container {
+
+	width: 99%;
+}
+
+/*HEADER*/
+
+small {
+
+	font-style: italic;
+}
+
+/*VIEW 1*/
+
+#firstpage {
+
+	background-image: url("images/family.jpeg");
+	background-repeat: repeat;
+	height: 600px;
+}
+
+#introBox {
+
+	background-color: rgba(255, 255, 255, 0.9);
+	position: absolute;
+	top: 250px;
+	left: 50px;
+}
+
+#introBox h3 {
+
+	border-bottom: solid 0.5px black;
+	font-weight: normal;
+}
+
+/*VIEW 2*/
+
+.numbPeople {
+
+	width: 60px;
+	margin-left: 20px;
+}
+
+#sidebar {
+
+	border: solid 1px black;
+	height: 500px;
+	padding: 10px;
+}
+
+#box {
+
+	background-color: lightgrey;
+}
+
+#dishName {
+
+	border-bottom: solid 0.5px black;
+}
+
+/*View 3*/
+
+#pageHeader {
+
+	background-color: #ffe680;
+	margin-top: 0px;
+	margin-bottom: 40px;
+	border-bottom: solid black 2px;
+}
+
+#pageHeader h4 {
+
+	border-bottom: solid 0.5px black;
+	padding: 10px;
+}
+
+.form-group {
+
+	width: 200px;
+}
+
+.search {
+
+	float: left;
+	margin-left: 10px;
+}
+
+/*VIEW 4*/
+
+.imgDish {
+
+	margin-bottom: 20px;
+}
+
+.imgView4 {
+
+	width: 400px;
+	height: auto;
+}
+
+#ingredientsDiv {
+
+	background-color: #ffe680;
+	border: solid 1px black;
+	padding: 10px;
+	padding-bottom: 50px;
+}
+
+#ingredientsDiv h4 {
+
+	border-bottom: solid 0.5px black;
+	padding-bottom: 
+}
+
+.countTable {
+
+	border-bottom: solid 1px black;
+	margin-bottom: 30px;
+}
+
+.countTable td {
+
+	padding: 10px;
+}
+
+.countTable td:nth-child(2) {
+
+	width: 200px;
+}
+
+.selectButton {
+
+	float: left;
+}
+
+.ingredientsCost {
+
+	float: right;
+}
+
+.ingredientsCost p{
+
+	float: left;
+	margin-left: 20px;
+}
+
+p{
+	font-family: Avenir;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title>Dinner planner</title>
+
+	    <!-- Bootstrap CSS -->
+	    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
+	    <link rel="stylesheet" type="text/css" href="style.css">
+
+	    <!-- jQuery -->
+	    <script src="https://code.jquery.com/jquery.js"></script>
+	    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+	    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+		<!-- The application JavaScript code -->
+		<script src="js/app.js"></script>
+		<script src="js/model/dinnerModel.js"></script>
+		<script src="js/view/exampleView.js"></script>
+		<script src="js/view/exampleViewController.js"></script>
+  	</head>
+  	<body>
+  	<div class="container">
+		<div id="view2">
+			<div class="row">
+				<div class="col-lg-3" id="sidebar">
+					<h4>My Dinner</h4>
+						<p id="peopleP">People</p>
+						<div class="form-group, numbPeople">
+							<select class="form-control" id="numbPeople">
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+							</select>
+						</div>
+					<div id="box">
+						<p>Dish Name</p>
+						<p>Cost</p>
+					</div>
+					<div id="dishName">Pending</div>
+					<div id="price">...</div>
+					<div id="totalCost">...</div>
+					<button class="btn-lg btn-warning centerBlock" id="confirmDinner">Confirm Dinner</button>
+				</div>
+			</div>
+		</div>
+		</div>
+	</body>
+</html>
