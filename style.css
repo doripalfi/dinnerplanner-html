@@ -154,6 +154,7 @@ small {
 
 .imgDish {
 
+
 	margin-bottom: 20px;
 }
 
@@ -209,6 +210,12 @@ small {
 	margin-left: 20px;
 }
 
-p{
+p {
 	font-family: Avenir;
+}
+
+#backToSelectButton {
+
+	margin-top: 40px;
+	margin-left: 15px;
 }
