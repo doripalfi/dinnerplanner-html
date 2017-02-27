@@ -2,9 +2,11 @@
  * Created by dorapalfi on 10/02/17.
  */
 //make Captial letter
-var View5 = function (container, model) {
+var View5 = function (container5, model) {
 
-    container.hide();
+    container5.hide();
+
+    this.container5 = container5;
 
     //get elements that need to be populated with information
     //this.guestNumber = $("#numberOfGuests");
@@ -13,6 +15,10 @@ var View5 = function (container, model) {
     this.thirdDish = $("#3rddish");
 
     this.totalprice = $("#totalprice");
+
+    this.backButton = $("#backAndEditButton");
+
+    this.printButton = $("#printButton");
 
     guests = model.getNumberOfGuests();
 

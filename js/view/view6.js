@@ -1,12 +1,15 @@
 /**
  * Created by dorapalfi on 10/02/17.
  */
-var View6 = function (container, model) {
+var View6 = function (container6, model) {
 
     //sign up as a listener
     model.attach(this);
 
-    container.hide();
+    this.container6 = container6;
+    this.container6.hide();
+
+    this.backButton = $("#backFrom6Button");
 
     //this.guestNumber = $("#numberOfGuests");
     this.dishPic = $("#dishImage1");

@@ -8,6 +8,8 @@ var stateControl = function(view1, view2, view3, view4, view5, view6) {
     var viewTwo = view2;
     var viewThree = view3;
     var viewFour = view4;
+    var viewFive = view5;
+    var viewSix = view6;
 
     var startDinner = function(view1, view2, view3){
         view1.start_button.click(function () {
@@ -52,6 +54,36 @@ var stateControl = function(view1, view2, view3, view4, view5, view6) {
         })
     };
 
+    var confirmDinner = function(view2, view3, view5){
+        view2.confirmDinnerButton.click(function () {
+            view2.container2.hide();
+            view5.container5.show();
+
+        })
+    };
+
+    var backFrom5 = function(view5, view2, view3){
+        view5.backButton.click(function () {
+            view5.container5.hide();
+            view2.container2.show();
+
+        })
+    };
+
+    var printDinner = function(view5, view6){
+        view5.printButton.click(function(){
+            view5.container5.hide();
+            view6.container6.show();
+        })
+    };
+
+    var backFrom6 = function(view6, view5){
+        view6.backButton.click(function(){
+            view6.container6.hide();
+            view5.container5.show();
+        })
+    }
+
     startDinner(viewOne, viewTwo, viewThree );
 
     switchTo4(viewThree, viewFour);
@@ -60,6 +92,13 @@ var stateControl = function(view1, view2, view3, view4, view5, view6) {
 
     confirmDish(viewThree, viewFour);
 
+    confirmDinner(viewTwo, viewThree, viewFive);
+
+    backFrom5(viewFive, viewTwo, viewThree);
+
+    printDinner(viewFive, viewSix);
+
+    backFrom6(viewSix, viewFive);
 
 
 };

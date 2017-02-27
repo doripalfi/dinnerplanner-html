@@ -10,9 +10,12 @@ var View2 = function (container2, model) {
 
     this.selectGuestsButton = $("#numbPeople");
     this.sideBarTable = $("#sidebarTable");
+    this.confirmDinnerButton = $("#confirmDinner");
 
     this.totalMenu = model.getFullMenu();
 
+
+    //function that is called when new meal is added to the menu
     this.updateSideBarMenu = function(){
 
         guestNumber = model.getNumberOfGuests();
@@ -26,6 +29,7 @@ var View2 = function (container2, model) {
     };
 
 
+    //updating the menu
     this.update = function(args) {
         var updateArg = args;
         switch (updateArg){

@@ -2,7 +2,7 @@
 var DinnerModel = function() {
 
 	// number of guests and selected dinner options for dinner menu
-	this.numberOfGuests = 0;
+	this.numberOfGuests = 1;
 	this.dinnerOptions = [];
 	this.resultOfSearch = "starter";
 	this.dishToDisplay = "";
