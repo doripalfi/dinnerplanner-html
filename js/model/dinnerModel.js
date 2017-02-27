@@ -34,6 +34,11 @@ var DinnerModel = function() {
 		return this.resultOfSearch;
 	};
 
+	this.confirmDinner = function(){
+		this.notify("switchToView5")
+	};
+
+
 	//depending on what we choose is View 3 this updates the variable that stores the starter/ main dish / dessert value
 	this.changeSelectedType = function(searchResult){
 		this.resultOfSearch = searchResult;

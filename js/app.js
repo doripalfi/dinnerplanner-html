@@ -4,8 +4,8 @@ $(function() {
 
 
 	model.addDishToMenu(103);
-	model.addDishToMenu(1);
-	model.addDishToMenu(202);
+	//model.addDishToMenu(1);
+	//model.addDishToMenu(202);
 
 
 
@@ -30,11 +30,14 @@ $(function() {
 	var search = new view3Search(viewThree, model);
 	var backButton = new backToSelectController(viewFour, model);
 	var confirmDishButton = new confirmDishController(viewFour, model);
+	var confirmDinner = new confirmDinnerController(viewTwo, model);
 
 	model.attach(viewOne);
 	model.attach(viewTwo);
 	model.attach(viewThree);
 	model.attach(viewFour);
+	model.attach(viewFive);
+	model.attach(viewSix);
 
 
 });
