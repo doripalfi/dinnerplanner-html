@@ -3,8 +3,6 @@ $(function() {
 	var model = new DinnerModel();
 
 
-
-	model.setNumberOfGuests(8);
 	model.addDishToMenu(103);
 	model.addDishToMenu(1);
 	model.addDishToMenu(202);
@@ -31,6 +29,7 @@ $(function() {
 	var dishDetail = new dishDetailController(viewThree, model);
 	var search = new view3Search(viewThree, model);
 	var backButton = new backToSelectController(viewFour, model);
+	var confirmDishButton = new confirmDishController(viewFour, model);
 
 	model.attach(viewOne);
 	model.attach(viewTwo);

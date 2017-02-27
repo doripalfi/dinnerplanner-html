@@ -6,6 +6,7 @@ var addGuestController = function(view, model) {
 
     view.selectGuestsButton.on('change', function(){
         guestNumber = view.selectGuestsButton.val();
+        console.log("guest number changed");
         model.setNumberOfGuests(guestNumber);
     });
 

@@ -12,23 +12,33 @@ var View4 = function (container4, model) {
 
     this.backButton = $("#backToSelectButton");
 
+    this.confirmButton = $("#confirm_dish");
 
 
-    guests = model.getNumberOfGuests();
 
     //exampleDish = model.getFullMenu()[1];
 
     this.displayIngredients = function () {
 
-        this.guestNumber = $("#ingredientsDiv2");
+
+
+    this.guestNumber = $("#ingredientsDiv2");
     this.imageOfDish = $("#dishImage");
     this.imageOfText = $("#imageText");
     this.tableOfIngredients = $("#ingredientsTable");
     this.costOfIngredients = $("#ingredientsCost");
-         exampleDish = model.getDishToDisplay();
-        console.log("display example Dish");
-    console.log(exampleDish);
-    selectedDish = model.getDish(exampleDish.id);
+
+    this.guestNumber.empty();
+    this.imageOfDish.empty();
+    this.imageOfText.empty();
+    this.tableOfIngredients.empty();
+    this.costOfIngredients.empty();
+
+     guests = model.getNumberOfGuests();
+
+     exampleDish = model.getDishToDisplay();
+     console.log(exampleDish);
+     selectedDish = model.getDish(exampleDish.id);
 
     dishImage = "images/" + selectedDish.image;
     dishDescription = selectedDish.description;
@@ -55,12 +65,8 @@ var View4 = function (container4, model) {
 
     this.costOfIngredients.append("<p>" + model.getTotalMenuPrice() + "</p><p> SEK </p>" );
 
-        this.update = function(){
-
     };
 
-
-    };
 
     this.update = function(args) {
         var updateArg = args;
@@ -68,6 +74,8 @@ var View4 = function (container4, model) {
             case "switchToView4":
                 this.displayIngredients();
                 break;
+            case "numberChanged":
+                this.displayIngredients();
             default:
                 break;
         }

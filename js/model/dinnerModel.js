@@ -43,9 +43,8 @@ var DinnerModel = function() {
 
 	this.setDisplayDishDetail = function(buttonClicked){
 		currentDishes = this.getAllDishes(this.resultOfSearch);
-		this.dishToDisplay = currentDishes[buttonClicked];
+		this.dishToDisplay = currentDishes[buttonClicked-1];
 		this.notify("switchToView4");
-
 	};
 
 	this.getDisplayDishDetail = function(){
