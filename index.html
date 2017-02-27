@@ -33,30 +33,31 @@
 			<!--VIEW 2-->
 			<div class="row" id="view2">
 				<div class="col-lg-3" id="sidebar">
-								<h4>My Dinner</h4>
-									<p id="peopleP">People</p>
-									<div class="form-group, numbPeople">
-										<select class="form-control" id="numbPeople">
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
-										</select>
-									</div>
-								<div id="box">
-									<p>Dish Name</p>
-									<p>Cost</p>
-								</div>
-								<div id="dishName">Pending</div>
-								<div id="price">...</div>
-								<div id="totalCost">...</div>
-								<button class="btn-lg btn-warning centerBlock" id="confirmDinner">Confirm Dinner</button>
+					<h4>My Dinner</h4>
+					<p id="peopleP">People</p>
+					<div class="form-group" id="numbPeople">
+						<select class="form-control" id="numbPeople">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select>
+					</div>
+					<table class="sidebarTable" id="sidebarTable">
+						<tr>
+							<th>Dish Name</th>
+							<th>Cost</th>
+						</tr>
+						<tr>
+							<td>Pending</td>
+							<td>...</td>
+						</tr>
+					</table>
+					<div id="totalCost">...</div>
+					<button class="btn-lg btn-warning centerBlock" id="confirmDinner">Confirm Dinner</button>
 				</div>
 			<!--VIEW 3-->
 				<div id="view3">
-					<div class="col-lg-3 empty">
-						&nbsp;
-					</div>
 					<div class="col-lg-9" id="pageHeader">
 									<h4>SELECT DISH</h4>
 									<div class="col-lg-5">
@@ -95,22 +96,21 @@
 						&nbsp;
 					</div>
 					<div class="col-lg-4">
-									<div class="imgDish" id="dishImage">
-
-									</div>
-									<div id="imageText">
-									</div>
-									<button class="btn-lg btn-warning" id="backToSelectButton">back to Select Dish</button>
+						<div class="imgDish" id="dishImage">
+						</div>
+						<div id="imageText">
+						</div>
+						<button class="btn-lg btn-warning" id="backToSelectButton">back to Select Dish</button>
 					</div>
 					<div class="col-lg-5">
-									<div id="ingredientsDiv">
-										<p id="ingredientsDiv2"></p>
-										<table class="countTable center" id="ingredientsTable" style="font-family: Avenir">
-										</table>
-										<button class="btn btn-warning selectButton" id="confirm_dish">Confirm Dish</button>
-										<div class="ingredientsCost" id="ingredientsCost">
-										</div>
-									</div>
+						<div id="ingredientsDiv">
+							<p id="ingredientsDiv2"></p>
+							<table class="countTable center" id="ingredientsTable" style="font-family: Avenir">
+							</table>
+							<button class="btn btn-warning selectButton" id="confirm_dish">Confirm Dish</button>
+							<div class="ingredientsCost" id="ingredientsCost">
+							</div>
+						</div>
 					</div>
 				</div>
 
@@ -160,7 +160,7 @@
         	</div>
         <!--end tag container-->	
     	</div>
-    <!--end tag body-->
+    	<!--end tag body-->
 	</div>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>

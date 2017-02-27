@@ -1,3 +1,5 @@
+body { font-family: avenir; }
+
 /*CENTER TEXT*/
 
 .centerText {
@@ -18,8 +20,8 @@
 
 .center {
 
-	margin-left:auto;
-	margin-right:auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 /*BUTTONS*/
@@ -69,27 +71,56 @@ small {
 
 /*VIEW 2*/
 
-.numbPeople {
+#numbPeople {
 
-	width: 60px;
-	margin-left: 20px;
+	width: 50px;
+}
+
+#peopleP {
+
+	margin-top: 20px;
+	font-weight: bold;
 }
 
 #sidebar {
 
 	border: solid 1px black;
 	height: 500px;
-	padding: 10px;
 }
 
-#box {
+.sidebarTable {
+
+	margin-top: 50px;
+	margin-right: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	border-bottom: solid 1px black;
+}
+
+.sidebarTable td{
+
+	width: 100%;
+	height: 50px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.sidebarTable th {
 
 	background-color: lightgrey;
+	padding-left: 5px;
+	padding-right: 5px;
 }
 
-#dishName {
+#totalCost {
 
-	border-bottom: solid 0.5px black;
+	float: right;
+	margin-right: 5%;
+}
+
+#confirmDinner {
+
+	margin-top: 100px;
 }
 
 /*View 3*/
