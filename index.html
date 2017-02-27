@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dinner planner</title>
+  	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title>Dinner planner</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-	  <link rel="stylesheet" type="text/css" href="style.css">
-
-
-  </head>
-  <body>
-	  		<div class="container">
+    	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+	  	<link rel="stylesheet" type="text/css" href="style.css">
+  	</head>
+  	<body>
+	  	<div class="container">
   			<div id="header">
 				<div class="row">
 					<div class="col-lg-12">
@@ -21,6 +19,7 @@
 					</div>
 				</div>
 			</div>
+
 			<div id="view1">
 				<div id="firstpage">
 					<div class="col-lg-4" id="introBox">
@@ -31,32 +30,30 @@
 					</div>
 				</div>
 			</div>
-			<div id="view2">
-			<div class="row">
-				<div class="col-lg-3" id="sidebar">
-					<h4>My Dinner</h4>
-						<p id="peopleP">People</p>
-						<div class="form-group, numbPeople">
-							<select class="form-control" id="numbPeople">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-							</select>
+
+			<div class="row" id="view2">
+					<div class="col-lg-3" id="sidebar">
+						<h4>My Dinner</h4>
+							<p id="peopleP">People</p>
+							<div class="form-group, numbPeople">
+								<select class="form-control" id="numbPeople">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+							</div>
+						<div id="box">
+							<p>Dish Name</p>
+							<p>Cost</p>
 						</div>
-					<div id="box">
-						<p>Dish Name</p>
-						<p>Cost</p>
+						<div id="dishName">Pending</div>
+						<div id="price">...</div>
+						<div id="totalCost">...</div>
+						<button class="btn-lg btn-warning centerBlock" id="confirmDinner">Confirm Dinner</button>
 					</div>
-					<div id="dishName">Pending</div>
-					<div id="price">...</div>
-					<div id="totalCost">...</div>
-					<button class="btn-lg btn-warning centerBlock" id="confirmDinner">Confirm Dinner</button>
-				</div>
-			</div>
-		</div>
+
 			<div id="view3">
-			<div class="row">
 				<div class="col-lg-3 empty">
 					&nbsp;
 				</div>
@@ -78,7 +75,7 @@
 						</div>
 					</div>
 				</div>
-				</div>
+			</div>
 			<div class="row" id="selectedDishes">
 				<div class="col-lg-3 empty"></div>
 				<div class="col-lg-3"><div class="imgContainer"><img class="centerBlock" src="" id="img1">
@@ -93,6 +90,7 @@
             	<p style="padding-top: 3%" id="par3"></p> </div> </div>
 			</div>
 			</div>
+
 			<div id="view4">
 				<div class="row">
 					<div class="col-lg-3 empty">
@@ -118,52 +116,52 @@
 					</div>
 				</div>
 			</div>
+
 			<div id="view5">
-      <div class="row" style="padding: 1%; background-color: #ffe680 ">
-      <div class='page-header'>
+			    <div class="row" style="padding: 1%; background-color: #ffe680 ">
+				    <div class='page-header'>
+	           			<h2>
+					        <span id="numberOfGuests" style="padding: 2%"></span>
+					        <button class='btn btn-warning pull-right' style="margin-right: 2%">Go Back & Edit Dinner</button>
+	        			</h2>
+	     			</div>
+        		</div>
+          		<div class="row" style="margin-top: 3%; align-content: center">
+            		<div class="col-lg-3"></div>
+            		<div class="col-lg-2" id="1stdish"></div>
+            		<div class="col-lg-2" id="2nddish"></div>
+            		<div class="col-lg-2" id="3rddish"></div>
+            		<div class="col-lg-2">
+            			<p id="totalprice"></p>
+            		</div>
+            		<div class="col-lg-1"></div>
+       			</div>
 
-           <h2>
-        <span id="numberOfGuests" style="padding: 2%"></span>
-        <button class='btn btn-warning pull-right' style="margin-right: 2%">Go Back & Edit Dinner</button>
-        </h2>
-      </div>
-        </div>
-          <div class="row" style="margin-top: 3%; align-content: center">
-            <div class="col-lg-3"></div>
-            <div class="col-lg-2" id="1stdish"></div>
-            <div class="col-lg-2" id="2nddish"></div>
-            <div class="col-lg-2" id="3rddish"></div>
-            <div class="col-lg-2"> <p id="totalprice"></p></div>
-            <div class="col-lg-1"></div>
-        </div>
+    			<div class="row">
+        			<div class="col-lg-5"></div>
+        			<button type="button" class="btn btn-warning" style="margin-top: 7%; padding-left: 5%; padding-right: 5%">Print Full Recipe </button>
+    			</div>
+      		</div>
 
-    <div class="row">
-        <div class="col-lg-5"></div>
-        <button type="button" class="btn btn-warning" style="margin-top: 7%; padding-left: 5%; padding-right: 5%">Print Full Recipe </button>
-    </div>
-      </div>
 			<div id="view6">
-     		 <div class="row" style="padding: 1%; background-color: #ffe680 ">
-      		<div class='page-header'>
+     	 		<div class="row" style="padding: 1%; background-color: #ffe680 ">
+      				<div class='page-header'>
+	           			<h2>
+			  			<span id="numberOfGuests" style="padding: 2%"></span>
+			  			<button class='btn btn-warning pull-right' style="margin-right: 2%">Go Back & Edit Dinner</button>
+						</h2>
+          			</div>
+				</div>
+		        <div class="row" style="margin-top: 5%; margin-left: 5%">
+		        <div class="col-lg-1"></div>
+		        <div class="col-lg-2" id="dishImage1"></div>
+	            <div class="col-lg-3" id="dishDescription1"></div>
+	            <div class="col-lg-5" id="dishPreparation1"></div>
+	            <div class="col-lg-1"></div>
+        	</div>
 
-           <h2>
-  			<span id="numberOfGuests" style="padding: 2%"></span>
-  			<button class='btn btn-warning pull-right' style="margin-right: 2%">Go Back & Edit Dinner</button>
-			</h2>
-          </div>
-
-			</div>
-        <div class="row" style="margin-top: 5%; margin-left: 5%">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-2" id="dishImage1"></div>
-            <div class="col-lg-3" id="dishDescription1"></div>
-            <div class="col-lg-5" id="dishPreparation1"></div>
-            <div class="col-lg-1"></div>
-        </div>
-
-
-    </div>
-		</div>
+    	</div>
+	</div>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
