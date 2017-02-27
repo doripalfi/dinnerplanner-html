@@ -129,8 +129,8 @@ var DinnerModel = function() {
 	this.addDishToMenu = function(id) {
 		var selectedMeal = this.getDish(id);
 		this.dinnerOptions.push(selectedMeal);
-		this.notify();
-	}
+		this.notify("addToSideBar");
+	};
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {

@@ -45,11 +45,20 @@ var stateControl = function(view1, view2, view3, view4, view5, view6) {
         })
     };
 
+    var confirmDish = function(view3, view4){
+        view4.confirmButton.click(function () {
+            view4.container4.hide();
+            view3.container3.show();
+        })
+    };
+
     startDinner(viewOne, viewTwo, viewThree );
 
     switchTo4(viewThree, viewFour);
 
     backTo3(viewThree, viewFour);
+
+    confirmDish(viewThree, viewFour);
 
 
 
