@@ -4,16 +4,65 @@ var DinnerModel = function() {
 	// number of guests and selected dinner options for dinner menu
 	this.numberOfGuests = 0;
 	this.dinnerOptions = [];
+	this.resultOfSearch = "starter";
+	this.dishToDisplay = "";
+	this.searchFoundValue = '';
+
+	//Lab 3
+	this._listeners = [];
+
+	this.attach = function(listener) {
+		this._listeners.push(listener);
+	};
+
+
+	this.notify = function (args) {
+		for (var i=0; i<this._listeners.length; i++){
+			//this._listeners[i](this, args);
+			this._listeners[i].update(args);
+		}
+		
+	};
+
+	//in View 3 this tells the view whether we want to see starters, mains or desserts
+	this.getSelectedType = function(){
+		return this.resultOfSearch;
+	};
+
+	//depending on what we choose is View 3 this updates the variable that stores the starter/ main dish / dessert value
+	this.changeSelectedType = function(searchResult){
+		this.resultOfSearch = searchResult;
+		this.notify("selectedTypeChanged");
+
+	};
+
+	this.setDisplayDishDetail = function(buttonClicked){
+		currentDishes = this.getAllDishes(this.resultOfSearch);
+		this.dishToDisplay = currentDishes[buttonClicked];
+		this.notify("switchToView4");
+
+	};
+
+	this.getDisplayDishDetail = function(){
+		return(this.dishToDisplay);
+	};
+
+	this.searchFoundFunction = function(searchValue){
+		this.searchFoundValue = searchValue;
+		this.notify("searchFound");
+	};
+
 
 
 	this.setNumberOfGuests = function(num) {
 		this.numberOfGuests = num;
-	}
+		this.notify("numberChanged");
+	};
 
 	// should return 
 	this.getNumberOfGuests = function() {
 		return this.numberOfGuests;
-	}
+	};
 
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
@@ -25,12 +74,12 @@ var DinnerModel = function() {
 			}
 		}
 		return selected;
-	}
+	};
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
 		return this.dinnerOptions;
-	}
+	};
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
@@ -40,7 +89,7 @@ var DinnerModel = function() {
 			ourIngredients.push(ourMenu[i].ingredients)
 		}
 		return ourIngredients;
-	}
+	};
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
@@ -53,20 +102,21 @@ var DinnerModel = function() {
 			}
 		}
 		return totalPrice;
-	}
+	};
 
 	this.getDishPrice = function(dishID){
-		var totalPrice = 0;
+		var totalCost =0;
 		var guests = this.numberOfGuests;
 		var ourMenu = this.getFullMenu();
 		for(var i=0; i< ourMenu.length; i++){
 			if (dishID === ourMenu[i].id){
 				for(var j=0; j<ourMenu[i].ingredients.length; j++){
-					totalPrice = totalPrice + (ourMenu[i].ingredients[j].price)*guests;
+					totalCost = totalCost + (ourMenu[i].ingredients[j].price)*guests;
+
 				}
 			}
 		}
-		return totalPrice;
+		return totalCost;
 
 	};
 
@@ -75,6 +125,7 @@ var DinnerModel = function() {
 	this.addDishToMenu = function(id) {
 		var selectedMeal = this.getDish(id);
 		this.dinnerOptions.push(selectedMeal);
+		this.notify();
 	}
 
 	//Removes dish from menu
@@ -116,7 +167,24 @@ var DinnerModel = function() {
 				return dishes[key];
 			}
 		}
-	}
+	};
+
+	this.getEveryDish = function(){
+		return dishes;
+	};
+
+		//function that returns a dish of specific name
+	this.getDishByName = function (dishName) {
+	  for(key in dishes){
+			if(dishes[key].name == dishName) {
+				return dishes[key];
+			}
+		}
+	};
+
+	this.getEveryDish = function(){
+		return dishes;
+	};
 
 
 	// the dishes variable contains an array of all the 

@@ -1,10 +1,13 @@
 /**
  * Created by dorapalfi on 10/02/17.
  */
-var view5 = function (container, model) {
+//make Captial letter
+var View5 = function (container, model) {
+
+    container.hide();
 
     //get elements that need to be populated with information
-    this.guestNumber = $("#numberOfGuests");
+    //this.guestNumber = $("#numberOfGuests");
     this.firstDish = $("#1stdish");
     this.secondDish = $("#2nddish");
     this.thirdDish = $("#3rddish");
@@ -26,8 +29,10 @@ var view5 = function (container, model) {
     dish2price = model.getDishPrice(fullMenu[1].id);
     dish3price = model.getDishPrice(fullMenu[2].id);
 
+    text = 'My Dinner: '  + guests + " people";
 
-    this.guestNumber.append("<p style='margin:2%; font-size: 2.5em'> My Dinner " + guests + " people </p>");
+    $("#numberOfGuests").text(text);
+    //this.guestNumber.append("<p style='margin:2%; font-size: 2.5em'> My Dinner:  " + guests + " people </p>");
 
     this.firstDish.append('<img src='+ image1 + '> <p>' + fullMenu[0].name + '</p><p>' + dish1price + '</p>');
 
@@ -37,8 +42,12 @@ var view5 = function (container, model) {
 
     //get total price of the dinner and append it to the toal price element
     totalmoney = model.getTotalMenuPrice();
-    this.totalprice.append("<p> The total price is: " + totalmoney + "</p>")
+    this.totalprice.append("<p> The total price is: " + totalmoney + "</p>");
+
+        this.update = function(){
+
+    };
 
 
 
-}
+};

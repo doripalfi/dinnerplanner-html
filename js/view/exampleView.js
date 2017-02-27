@@ -13,4 +13,9 @@ var ExampleView = function (container1,  model) {
 
 	
 }
+
+var View1Controller = function (container, model){
+	//when we click the button in view 1 we should hide view 1 and add view 2 & 3
+	this.button.onclick()
+}
  
