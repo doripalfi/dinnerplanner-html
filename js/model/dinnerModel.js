@@ -24,6 +24,11 @@ var DinnerModel = function() {
 		
 	};
 
+	//in View 4 we want to display the ingredients of the dish that was selected in View3
+	this.getDishToDisplay = function(){
+		return this.dishToDisplay;
+	}
+
 	//in View 3 this tells the view whether we want to see starters, mains or desserts
 	this.getSelectedType = function(){
 		return this.resultOfSearch;

@@ -10,16 +10,24 @@ var View4 = function (container4, model) {
     this.container4 = container4;
     container4.hide();
 
-    this.backButton = $("#backToSelectButtonT");
+    this.backButton = $("#backToSelectButton");
 
-    this.guestNumber = $("#ingredientsDiv2");
+
+
+    guests = model.getNumberOfGuests();
+
+    //exampleDish = model.getFullMenu()[1];
+
+    this.displayIngredients = function () {
+
+        this.guestNumber = $("#ingredientsDiv2");
     this.imageOfDish = $("#dishImage");
     this.imageOfText = $("#imageText");
     this.tableOfIngredients = $("#ingredientsTable");
     this.costOfIngredients = $("#ingredientsCost");
-    guests = model.getNumberOfGuests();
-
-    exampleDish = model.getFullMenu()[1];
+         exampleDish = model.getDishToDisplay();
+        console.log("display example Dish");
+    console.log(exampleDish);
     selectedDish = model.getDish(exampleDish.id);
 
     dishImage = "images/" + selectedDish.image;
@@ -51,6 +59,19 @@ var View4 = function (container4, model) {
 
     };
 
+
+    };
+
+    this.update = function(args) {
+        var updateArg = args;
+        switch (updateArg){
+            case "switchToView4":
+                this.displayIngredients();
+                break;
+            default:
+                break;
+        }
+    };
 
     //this.guestNumber.append("<p style='margin:2%; font-size: 2.5em'> My Dinner " + guests + " people </p>");
 };
