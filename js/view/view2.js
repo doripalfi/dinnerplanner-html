@@ -27,7 +27,7 @@ var View2 = function (container2, model) {
         for(i=0; i<this.totalMenu.length; i++){
             console.log(model.getDishPrice(this.totalMenu[i].id)*guestNumber);
             this.sideBarTable.find('tbody').append(
-                "<tr id='" + this.totalMenu[i].id + "'> <td>" + this.totalMenu[i].name +"</td><td>" + model.getDishPrice(this.totalMenu[i].id) +"</td></tr>"
+                "<tr id='" + this.totalMenu[i].id + "'> <td>" + this.totalMenu[i].name +"</td><td>" + model.getDishPrice(this.totalMenu[i].id)*guestNumber +"</td></tr>"
         )}
     };
 
@@ -41,6 +41,9 @@ var View2 = function (container2, model) {
                 break;
             case "dishRemoved":
                 console.log("inside dishRemoved");
+                this.updateSideBarMenu();
+                break;
+            case "numberChanged":
                 this.updateSideBarMenu();
                 break;
             default:

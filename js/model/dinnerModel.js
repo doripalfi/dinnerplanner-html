@@ -124,6 +124,8 @@ var DinnerModel = function() {
 		return this.totalPrice;
 	};
 
+
+
 	this.getDishPrice = function(dishID){
 		this.totalCost =0;
 		//guests = this.numberOfGuests;
@@ -131,15 +133,18 @@ var DinnerModel = function() {
 		var ourMenu = this.getEveryDish();
 		console.log(ourMenu);
 		for(var i=0; i< ourMenu.length; i++){
-			if (dishID === String(ourMenu[i].id)){
+			console.log(dishID);
+			if (dishID === ourMenu[i].id){
 				console.log("inside if");
 				for(var j=0; j<ourMenu[i].ingredients.length; j++){
 					console.log("adding ingredient");
 					this.totalCost = this.totalCost + (ourMenu[i].ingredients[j].price);
+					console.log(this.totalCost);
 
 				}
 			}
 		}
+		console.log(this.totalCost);
 		return this.totalCost;
 
 	};

@@ -62,9 +62,10 @@ var View4 = function (container4, model) {
         )
     }
 
-    console.log(model.getDishPrice(selectedDish*guests));
+    //console.log(model.getDishPrice(selectedDish*guests));
+        console.log(selectedDish);
 
-    this.costOfIngredients.append("<p>" + model.getDishPrice(selectedDish)*guests + "</p><p> SEK </p>" );
+    this.costOfIngredients.append("<p>" + model.getDishPrice(selectedDish.id)*guests + "</p><p> SEK </p>" );
 
     };
 
