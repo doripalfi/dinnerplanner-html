@@ -145,11 +145,13 @@ var DinnerModel = function() {
 	this.removeDishFromMenu = function(id) {
 		var ourMenu = this.getFullMenu();
 		for(var i = 0; i< ourMenu.length; i++ ){
-			if(ourMenu[i].id === id){
+			if(String(ourMenu[i].id) === id){
 				this.dinnerOptions.splice(i,1);
 			}
 		}
-	}
+		console.log(this.dinnerOptions);
+		this.notify("dishRemoved");
+	};
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)

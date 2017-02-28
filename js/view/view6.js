@@ -13,12 +13,14 @@ var View6 = function (container6, model) {
 
 
     //this.guestNumber.append("<p style='margin:2%; font-size: 2.5em'> My Dinner:  " + guests + " people </p>");
+
+
+    this.generateView6 = function(){
+
         this.guests = model.getNumberOfGuests();
         text = 'My Dinner: '  + this.guests + " people";
 
-    $("#numberOfGuests").text(text);
-
-    this.generateView6 = function(){
+        $("#numberOfGuests").text(text);
 
 
          //this.guestNumber = $("#numberOfGuests");

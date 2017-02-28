@@ -32,6 +32,7 @@ $(function() {
 	var confirmDishButton = new confirmDishController(viewFour, model);
 	var confirmDinner = new confirmDinnerController(viewTwo, model);
 	var printDinner = new printDinnerController(viewFive, model);
+	var removeDish = new removeDishController(viewTwo, model);
 
 	model.attach(viewOne);
 	model.attach(viewTwo);

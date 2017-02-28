@@ -12,11 +12,12 @@ var View2 = function (container2, model) {
     this.sideBarTable = $("#sidebarTable");
     this.confirmDinnerButton = $("#confirmDinner");
 
-    this.totalMenu = model.getFullMenu();
+
 
 
     //function that is called when new meal is added to the menu
     this.updateSideBarMenu = function(){
+        this.totalMenu = model.getFullMenu();
 
         this.sideBarTable.empty();
         this.sideBarTable.append("<tr> <th>Dish Name</th> <th>Cost</th> </tr>");
@@ -27,7 +28,7 @@ var View2 = function (container2, model) {
         for(i=0; i<this.totalMenu.length; i++){
             console.log(model.getDishPrice(this.totalMenu[i].id)*guestNumber);
             this.sideBarTable.find('tbody').append(
-                "<tr> <td>" + this.totalMenu[i].name +"</td><td>" + model.getDishPrice(this.totalMenu[i].id)*guestNumber +"</td></tr>"
+                "<tr id='" + this.totalMenu[i].id + "'> <td>" + this.totalMenu[i].name +"</td><td>" + model.getDishPrice(this.totalMenu[i].id)*guestNumber +"</td></tr>"
         )}
     };
 
@@ -37,6 +38,10 @@ var View2 = function (container2, model) {
         var updateArg = args;
         switch (updateArg){
             case "addToSideBar":
+                this.updateSideBarMenu();
+                break;
+            case "dishRemoved":
+                console.log("inside dishRemoved")
                 this.updateSideBarMenu();
                 break;
             default:
