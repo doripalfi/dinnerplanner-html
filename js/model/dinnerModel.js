@@ -184,7 +184,7 @@ var DinnerModel = function() {
 		}
 	  	return dish.type == type && found;
 	  });	
-	}
+	};
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {

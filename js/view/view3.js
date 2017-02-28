@@ -19,6 +19,8 @@ var View3 = function (container3, model) {
     this.Button2 = container3.find("#selectedType2");
     this.Button3 = container3.find("#selectedType3");
 
+    this.searchButton = container3.find("#searchButton");
+
     this.generateView3 = function() {
 
         selected = model.getSelectedType();

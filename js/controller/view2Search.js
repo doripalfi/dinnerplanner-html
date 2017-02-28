@@ -4,10 +4,22 @@
 
 var view3Search = function(view,model){
 
-    view.searchInput.change(function(){
+    view.searchButton.click(function(){
+        var searchValue = view.searchInput.val();
+        console.log(searchValue);
+
+        var type = model.getSelectedType();
+        console.log(type);
+        model.getAllDishes(type, searchValue);
+        console.log(model.getAllDishes(type, searchValue));
+
+    });
+
+/*    view.searchInput.change(function(){
         var searchValue = view.searchInput.val();
         model.getAllDishes(model.resultOfSearch, searchValue);
-    });
+        console.log(model.getAllDishes((model.resultOfSearch , "Meat")));
+    });*/
 
     view.searchInput.change(function(){
         var searchValue = view.searchInput.val();
