@@ -40,7 +40,7 @@ var View2 = function (container2, model) {
                 this.updateSideBarMenu();
                 break;
             case "dishRemoved":
-                console.log("inside dishRemoved")
+                console.log("inside dishRemoved");
                 this.updateSideBarMenu();
                 break;
             default:

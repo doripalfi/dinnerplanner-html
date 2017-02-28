@@ -65,6 +65,10 @@ var DinnerModel = function() {
 		this.notify("searchFound");
 	};
 
+	this.searchDisplay = function(){
+		this.notify("searchDisplay");
+	};
+
 
 
 	this.setNumberOfGuests = function(num) {
