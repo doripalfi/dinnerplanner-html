@@ -54,7 +54,7 @@ var View4 = function (container4, model) {
     for(var i=0; i<selectedDish.ingredients.length; i++){
         this.tableOfIngredients.append(
             '<tr>' +
-            '<td>' + selectedDish.ingredients[i].quantity + selectedDish.ingredients[i].unit +  '</td>' +
+            '<td>' + selectedDish.ingredients[i].quantity*guests + ' ' + selectedDish.ingredients[i].unit +  '</td>' +
             '<td>' + selectedDish.ingredients[i].name + '</td>' +
                 '<td> SEK </td>' +
                 '<td>' + selectedDish.ingredients[i].price*guests + '</td>' +
@@ -62,8 +62,9 @@ var View4 = function (container4, model) {
         )
     }
 
+    console.log(model.getDishPrice(selectedDish*guests));
 
-    this.costOfIngredients.append("<p>" + model.getTotalMenuPrice() + "</p><p> SEK </p>" );
+    this.costOfIngredients.append("<p>" + model.getDishPrice(selectedDish)*guests + "</p><p> SEK </p>" );
 
     };
 

@@ -8,7 +8,7 @@ var View2 = function (container2, model) {
     container2.hide();
 
 
-    this.selectGuestsButton = $("#numbPeople");
+    this.selectGuestsButton = container2.("#numbPeople");
     this.sideBarTable = $("#sidebarTable");
     this.confirmDinnerButton = $("#confirmDinner");
 
@@ -24,11 +24,10 @@ var View2 = function (container2, model) {
 
         guestNumber = model.getNumberOfGuests();
 
-
         for(i=0; i<this.totalMenu.length; i++){
             console.log(model.getDishPrice(this.totalMenu[i].id)*guestNumber);
             this.sideBarTable.find('tbody').append(
-                "<tr id='" + this.totalMenu[i].id + "'> <td>" + this.totalMenu[i].name +"</td><td>" + model.getDishPrice(this.totalMenu[i].id)*guestNumber +"</td></tr>"
+                "<tr id='" + this.totalMenu[i].id + "'> <td>" + this.totalMenu[i].name +"</td><td>" + model.getDishPrice(this.totalMenu[i].id) +"</td></tr>"
         )}
     };
 

@@ -69,11 +69,13 @@ var DinnerModel = function() {
 
 	this.setNumberOfGuests = function(num) {
 		this.numberOfGuests = num;
+		console.log(this.numberOfGuests);
 		this.notify("numberChanged");
 	};
 
 	// should return 
 	this.getNumberOfGuests = function() {
+		console.log(this.numberOfGuests);
 		return this.numberOfGuests;
 	};
 
@@ -106,30 +108,35 @@ var DinnerModel = function() {
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
-		var totalPrice = 0;
+		this.totalPrice = 0;
 		var guests = this.numberOfGuests;
 		var ourIngredients = this.getAllIngredients();
 		for(var i = 0; i< ourIngredients.length; i++ ){
 			for(var j=0; j<ourIngredients[i].length; j++){
-				totalPrice = totalPrice + (ourIngredients[i][j].price)*guests;
+				this.totalPrice = this.totalPrice + (ourIngredients[i][j].price)*guests;
 			}
 		}
-		return totalPrice;
+
+		return this.totalPrice;
 	};
 
 	this.getDishPrice = function(dishID){
-		var totalCost =0;
-		var guests = this.numberOfGuests;
-		var ourMenu = this.getFullMenu();
+		this.totalCost =0;
+		//guests = this.numberOfGuests;
+		//console.log(guests);
+		var ourMenu = this.getEveryDish();
+		console.log(ourMenu);
 		for(var i=0; i< ourMenu.length; i++){
-			if (dishID === ourMenu[i].id){
+			if (dishID === String(ourMenu[i].id)){
+				console.log("inside if");
 				for(var j=0; j<ourMenu[i].ingredients.length; j++){
-					totalCost = totalCost + (ourMenu[i].ingredients[j].price)*guests;
+					console.log("adding ingredient");
+					this.totalCost = this.totalCost + (ourMenu[i].ingredients[j].price);
 
 				}
 			}
 		}
-		return totalCost;
+		return this.totalCost;
 
 	};
 
