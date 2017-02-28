@@ -11,6 +11,10 @@ var addGuestController = function(view, model) {
         model.setNumberOfGuests(guestNumber);
     });
 
+    view.confirmDinnerButton.click(function(){
+        console.log("button clicked");
+        model.confirmDinner();
+    });
 
 
     //  view.start_button.click(function () {
