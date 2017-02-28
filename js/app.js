@@ -3,7 +3,7 @@ $(function() {
 	var model = new DinnerModel();
 
 
-	model.addDishToMenu(103);
+	//model.addDishToMenu(103);
 	//model.addDishToMenu(1);
 	//model.addDishToMenu(202);
 
@@ -31,6 +31,7 @@ $(function() {
 	var backButton = new backToSelectController(viewFour, model);
 	var confirmDishButton = new confirmDishController(viewFour, model);
 	var confirmDinner = new confirmDinnerController(viewTwo, model);
+	var printDinner = new printDinnerController(viewFive, model);
 
 	model.attach(viewOne);
 	model.attach(viewTwo);

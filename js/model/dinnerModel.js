@@ -38,6 +38,10 @@ var DinnerModel = function() {
 		this.notify("switchToView5")
 	};
 
+	this.printDinner = function(){
+		this.notify("switchToView6")
+	};
+
 
 	//depending on what we choose is View 3 this updates the variable that stores the starter/ main dish / dessert value
 	this.changeSelectedType = function(searchResult){
