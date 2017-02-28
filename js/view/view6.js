@@ -26,13 +26,13 @@ var View6 = function (container6, model) {
         this.dishText1 = $("#dishDescription1");
         this.dishPrep1 = $("#dishPreparation1");
 
-        this.dishPic2 = $("#dishImage1");
-        this.dishText2 = $("#dishDescription1");
-        this.dishPrep2 = $("#dishPreparation1");
+        this.dishPic2 = $("#dishImage2");
+        this.dishText2 = $("#dishDescription2");
+        this.dishPrep2 = $("#dishPreparation2");
 
-        this.dishPic3 = $("#dishImage1");
-        this.dishText3 = $("#dishDescription1");
-        this.dishPrep3 = $("#dishPreparation1");
+        this.dishPic3 = $("#dishImage3");
+        this.dishText3 = $("#dishDescription3");
+        this.dishPrep3 = $("#dishPreparation3");
 
         this.dishPic1.empty();
         this.dishText1.empty();

@@ -18,6 +18,9 @@ var View2 = function (container2, model) {
     //function that is called when new meal is added to the menu
     this.updateSideBarMenu = function(){
 
+        this.sideBarTable.empty();
+        this.sideBarTable.append("<tr> <th>Dish Name</th> <th>Cost</th> </tr>");
+
         guestNumber = model.getNumberOfGuests();
 
 
