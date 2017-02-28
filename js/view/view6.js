@@ -9,7 +9,7 @@ var View6 = function (container6, model) {
     this.container6 = container6;
     this.container6.hide();
 
-    this.backButton = $("#backFrom6Button");
+    this.backButton = container6.find("#backFrom6Button");
 
 
     //this.guestNumber.append("<p style='margin:2%; font-size: 2.5em'> My Dinner:  " + guests + " people </p>");

@@ -9,8 +9,8 @@ var View2 = function (container2, model) {
 
 
     this.selectGuestsButton = container2.find("#numbPeople");
-    this.sideBarTable = $("#sidebarTable");
-    this.confirmDinnerButton = $("#confirmDinner");
+    this.sideBarTable = container2.find("#sidebarTable");
+    this.confirmDinnerButton = container2.find("#confirmDinner");
 
 
 

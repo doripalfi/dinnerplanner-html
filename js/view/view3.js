@@ -8,16 +8,16 @@ var View3 = function (container3, model) {
     container3.hide();
 
 
-    this.selectMealType = $("#selectMealType");
+    this.selectMealType = container3.find("#selectMealType");
 
-    this.searchInput = $("#searchDish");
+    this.searchInput = container3.find("#searchDish");
 
-    this.dishImages = $("#selectedDishes");
+    this.dishImages = container3.find("#selectedDishes");
     this.dishImages.hide();
 
-    this.Button1 = $("#selectedType1");
-    this.Button2 = $("#selectedType2");
-    this.Button3 = $("#selectedType3");
+    this.Button1 = container3.find("#selectedType1");
+    this.Button2 = container3.find("#selectedType2");
+    this.Button3 = container3.find("#selectedType3");
 
     this.generateView3 = function() {
 
