@@ -9,19 +9,19 @@ var View5 = function (container5, model) {
     this.container5 = container5;
 
 
-    this.backButton = $("#backAndEditButton");
+    this.backButton = container5.find("#backAndEditButton");
 
-    this.printButton = $("#printButton");
+    this.printButton = container5.find("#printButton");
 
    this.generateView5 = function(){
 
 
 
-       this.totalprice = $("#totalprice");
+       this.totalprice = container5.find("#totalprice");
 
-       this.firstDish = $("#1stdish");
-       this.secondDish = $("#2nddish");
-       this.thirdDish = $("#3rddish");
+       this.firstDish = container5.find("#1stdish");
+       this.secondDish = container5.find("#2nddish");
+       this.thirdDish = container5.find("#3rddish");
 
        this.firstDish.empty();
        this.secondDish.empty();

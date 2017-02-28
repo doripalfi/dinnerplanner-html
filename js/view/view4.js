@@ -10,9 +10,9 @@ var View4 = function (container4, model) {
     this.container4 = container4;
     container4.hide();
 
-    this.backButton = $("#backToSelectButton");
+    this.backButton = container4.find("#backToSelectButton");
 
-    this.confirmButton = $("#confirm_dish");
+    this.confirmButton = container4.find("#confirm_dish");
 
 
 
