@@ -3,7 +3,6 @@
  */
 var addGuestController = function(view, model) {
 
-
     view.selectGuestsButton.on('change', function(){
         guestNumber = view.selectGuestsButton.val();
         console.log(guestNumber);
@@ -14,6 +13,14 @@ var addGuestController = function(view, model) {
     view.confirmDinnerButton.click(function(){
         console.log("button clicked");
         model.confirmDinner();
+    });
+
+    table = view.sideBarTable;
+
+    table.on('click', 'tr', function() {
+        console.log($(this).attr("id"));
+        dishID =  $(this).attr("id");
+        model.removeDishFromMenu(dishID);
     });
 
 

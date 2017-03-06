@@ -1,7 +1,7 @@
 /**
  * Created by dorapalfi on 24/02/17.
  */
-var dishDetailController = function(view,model){
+var dishDetailController = function(view, model){
 
 
     view.Button1.click( function(){

@@ -26,13 +26,13 @@ $(function() {
 	var viewOneController = new createDinnerController(viewOne, model);
 	var addGuest = new addGuestController(viewTwo, model);
 	var selectedMeal = new selectMealTypeController(viewThree, model);
-	var dishDetail = new dishDetailController(viewThree, model);
-	var search = new view3Search(viewThree, model);
-	var backButton = new backToSelectController(viewFour, model);
+	//var dishDetail = new dishDetailController(viewThree, model);
+	//var search = new view3Search(viewThree, model);
+	//var backButton = new backToSelectController(viewFour, model);
 	var confirmDishButton = new confirmDishController(viewFour, model);
 	//var confirmDinner = new confirmDinnerController(viewTwo, model);
 	var printDinner = new printDinnerController(viewFive, model);
-	var removeDish = new removeDishController(viewTwo, model);
+	//var removeDish = new removeDishController(viewTwo, model);
 
 	model.attach(viewOne);
 	model.attach(viewTwo);
