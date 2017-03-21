@@ -11,84 +11,83 @@ var DinnerModel = function() {
 	//Lab 3
 	this._listeners = [];
 
-	this.attach = function(listener) {
+	this.attach = function (listener) {
 		this._listeners.push(listener);
 	};
 
 
 	this.notify = function (args) {
-		for (var i=0; i<this._listeners.length; i++){
+		for (var i = 0; i < this._listeners.length; i++) {
 			//this._listeners[i](this, args);
 			this._listeners[i].update(args);
 		}
-		
+
 	};
 
 	//in View 4 we want to display the ingredients of the dish that was selected in View3
-	this.getDishToDisplay = function(){
+	this.getDishToDisplay = function () {
 		return this.dishToDisplay;
 	}
 
 	//in View 3 this tells the view whether we want to see starters, mains or desserts
-	this.getSelectedType = function(){
+	this.getSelectedType = function () {
 		return this.resultOfSearch;
 	};
 
-	this.confirmDinner = function(){
+	this.confirmDinner = function () {
 		this.notify("switchToView5")
 	};
 
-	this.printDinner = function(){
+	this.printDinner = function () {
 		this.notify("switchToView6")
 	};
 
 
 	//depending on what we choose is View 3 this updates the variable that stores the starter/ main dish / dessert value
-	this.changeSelectedType = function(searchResult){
+	this.changeSelectedType = function (searchResult) {
 		this.resultOfSearch = searchResult;
 		this.notify("selectedTypeChanged");
 
 	};
 
-	this.setDisplayDishDetail = function(buttonClicked){
+	this.setDisplayDishDetail = function (buttonClicked) {
 		currentDishes = this.getAllDishes(this.resultOfSearch);
-		this.dishToDisplay = currentDishes[buttonClicked-1];
+		this.dishToDisplay = currentDishes[buttonClicked - 1];
 		this.notify("switchToView4");
 	};
 
-	this.getDisplayDishDetail = function(){
-		return(this.dishToDisplay);
+	this.getDisplayDishDetail = function () {
+		return (this.dishToDisplay);
 	};
 
-	this.searchFoundFunction = function(searchValue){
+	this.searchFoundFunction = function (searchValue) {
 		this.searchFoundValue = searchValue;
 		this.notify("searchFound");
 	};
 
-	this.searchDisplay = function(){
+	this.searchDisplay = function () {
 		this.notify("searchDisplay");
 	};
 
 
-
-	this.setNumberOfGuests = function(num) {
+	this.setNumberOfGuests = function (num) {
 		this.numberOfGuests = num;
 		console.log(this.numberOfGuests);
 		this.notify("numberChanged");
 	};
 
 	// should return 
-	this.getNumberOfGuests = function() {
+	this.getNumberOfGuests = function () {
 		console.log(this.numberOfGuests);
 		return this.numberOfGuests;
 	};
 
 	//Returns the dish that is on the menu for selected type 
-	this.getSelectedDish = function(type) {
+	this.getSelectedDish = function (type) {
 		var ourMenu = this.getFullMenu();
 		var selected = [];
-		for(var i=0; i < ourMenu.length; i++){
-			if(ourMenu[i].type === type){
+		for (var i = 0; i < ourMenu.length; i++) {
+			if (ourMenu[i].type === type) {
 				selected.push(ourMenu[i])
 			}
 		}
@@ -96,28 +95,28 @@ var DinnerModel = function() {
 	};
 
 	//Returns all the dishes on the menu.
-	this.getFullMenu = function() {
+	this.getFullMenu = function () {
 		return this.dinnerOptions;
 	};
 
 	//Returns all ingredients for all the dishes on the menu.
-	this.getAllIngredients = function() {
+	this.getAllIngredients = function () {
 		var ourMenu = this.getFullMenu();
 		var ourIngredients = [];
-		for(var i = 0; i< ourMenu.length; i++ ){
+		for (var i = 0; i < ourMenu.length; i++) {
 			ourIngredients.push(ourMenu[i].ingredients)
 		}
 		return ourIngredients;
 	};
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
-	this.getTotalMenuPrice = function() {
+	this.getTotalMenuPrice = function () {
 		this.totalPrice = 0;
 		var guests = this.numberOfGuests;
 		var ourIngredients = this.getAllIngredients();
-		for(var i = 0; i< ourIngredients.length; i++ ){
-			for(var j=0; j<ourIngredients[i].length; j++){
-				this.totalPrice = this.totalPrice + (ourIngredients[i][j].price)*guests;
+		for (var i = 0; i < ourIngredients.length; i++) {
+			for (var j = 0; j < ourIngredients[i].length; j++) {
+				this.totalPrice = this.totalPrice + (ourIngredients[i][j].price) * guests;
 			}
 		}
 
@@ -125,18 +124,17 @@ var DinnerModel = function() {
 	};
 
 
-
-	this.getDishPrice = function(dishID){
-		this.totalCost =0;
+	this.getDishPrice = function (dishID) {
+		this.totalCost = 0;
 		//guests = this.numberOfGuests;
 		//console.log(guests);
 		var ourMenu = this.getEveryDish();
 		console.log(ourMenu);
-		for(var i=0; i< ourMenu.length; i++){
+		for (var i = 0; i < ourMenu.length; i++) {
 			console.log(dishID);
-			if (dishID === ourMenu[i].id){
+			if (dishID === ourMenu[i].id) {
 				console.log("inside if");
-				for(var j=0; j<ourMenu[i].ingredients.length; j++){
+				for (var j = 0; j < ourMenu[i].ingredients.length; j++) {
 					console.log("adding ingredient");
 					this.totalCost = this.totalCost + (ourMenu[i].ingredients[j].price);
 					console.log(this.totalCost);
@@ -151,18 +149,18 @@ var DinnerModel = function() {
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
-	this.addDishToMenu = function(id) {
+	this.addDishToMenu = function (id) {
 		var selectedMeal = this.getDish(id);
 		this.dinnerOptions.push(selectedMeal);
 		this.notify("addToSideBar");
 	};
 
 	//Removes dish from menu
-	this.removeDishFromMenu = function(id) {
+	this.removeDishFromMenu = function (id) {
 		var ourMenu = this.getFullMenu();
-		for(var i = 0; i< ourMenu.length; i++ ){
-			if(String(ourMenu[i].id) === id){
-				this.dinnerOptions.splice(i,1);
+		for (var i = 0; i < ourMenu.length; i++) {
+			if (String(ourMenu[i].id) === id) {
+				this.dinnerOptions.splice(i, 1);
 			}
 		}
 		console.log(this.dinnerOptions);
@@ -172,24 +170,72 @@ var DinnerModel = function() {
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	this.getAllDishes = function (type,filter) {
-	  return dishes.filter(function(dish) {
-		var found = true;
-		if(filter){
-			found = false;
-			dish.ingredients.forEach(function(ingredient) {
-				if(ingredient.name.indexOf(filter)!=-1) {
+	this.getAllDishes = function (type, filter, cb) {
+		
+		return dishes.filter(function (dish) {
+			var found = true;
+			if (filter) {
+				found = false;
+				dish.ingredients.forEach(function (ingredient) {
+					if (ingredient.name.indexOf(filter) != -1) {
+						found = true;
+					}
+				});
+				if (dish.name.indexOf(filter) != -1) {
 					found = true;
 				}
-			});
-			if(dish.name.indexOf(filter) != -1)
-			{
-				found = true;
 			}
-		}
-	  	return dish.type == type && found;
-	  });	
+			return dish.type == type && found;
+		});
 	};
+
+	this.callBackAllDishesNew = function(dishes){
+		console.log("inside callBackAllDishesNew");
+		console.log(dishes);
+		return dishes;
+	};
+
+ //new getAllDishes function
+	this.getAllDishesNew = function(type, filter, callBack) {
+			console.log("inside getalldishesnew")
+
+			$.ajax({
+				url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?type=dessert',
+				headers: {
+					'X-Mashape-Key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
+				},
+				success: function (data) {
+					console.log("successful ajax call");
+					callBack(data.results);
+					return callBack(data.results);
+				},
+				error: function (data) {
+					console.log(data)
+				}
+			})
+		return "hello";
+	};
+
+
+
+
+	//ajax call
+	this.getSpoonacular = function () {
+		$.ajax({
+			url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?type=dessert',
+			headers: {
+				'X-Mashape-Key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
+			},
+			success: function (data) {
+				console.log(data.results);
+				return data.results;
+			},
+			error: function (data) {
+				console.log(data)
+			}
+		})
+	};
+
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {

@@ -7,7 +7,7 @@ $(function() {
 	//model.addDishToMenu(1);
 	//model.addDishToMenu(202);
 
-
+	model.getSpoonacular();
 
 	//And create the needed controllers and views
 	//var exampleView = new ExampleView($("#exampleView"), model);

@@ -21,7 +21,6 @@ var View4 = function (container4, model) {
     this.displayIngredients = function () {
 
 
-
     this.guestNumber = $("#ingredientsDiv2");
     this.imageOfDish = $("#dishImage");
     this.imageOfText = $("#imageText");
