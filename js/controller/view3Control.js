@@ -2,7 +2,7 @@
  * Created by dorapalfi on 24/02/17.
  * This is for View3
  */
-var selectMealTypeController = function(view, model) {
+var view3Controller = function(view, model) {
 
 
 

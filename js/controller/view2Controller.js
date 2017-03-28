@@ -1,3 +1,6 @@
+/**
+ * Created by dorapalfi on 15/02/17.
+ */
 //controller for view2
 var view2Controller = function(view2, model) {
 

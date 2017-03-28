@@ -20,13 +20,11 @@ $(function() {
 
 
 	var overallController = new stateControl(viewOne, viewTwo, viewThree, viewFour, viewFive, viewSix);
-	//var overallController = new stateControl(viewOne, viewTwo, viewThree, viewFour, viewFive, viewSix);
 	//create controllers in separate file, and instantiate them here. and also pass the view variables from here to the controller. don't use
 	//new createDinnerController($("#view1"),model);
 	var viewOneController = new createDinnerController(viewOne, model);
 	var view2Control = new view2Controller(viewTwo, model);
-	var selectedMeal = new selectMealTypeController(viewThree, model);
-	//var dishDetail = new dishDetailController(viewThree, model);
+	var view3Control = new view3Controller(viewThree, model);
 	//var search = new view3Search(viewThree, model);
 	//var backButton = new backToSelectController(viewFour, model);
 	var confirmDishButton = new confirmDishController(viewFour, model);

@@ -1,7 +1,6 @@
 /**
  * Created by dorapalfi on 10/02/17.
  */
-//make Captial letter
 var View5 = function (container5, model) {
 
     container5.hide();
@@ -18,6 +17,7 @@ var View5 = function (container5, model) {
 
 
        this.totalprice = container5.find("#totalprice");
+       this.totalprice.empty();
 
        this.firstDish = container5.find("#1stdish");
        this.secondDish = container5.find("#2nddish");
@@ -60,14 +60,6 @@ var View5 = function (container5, model) {
 
            this.container.append('<img src=' + image + '> <p>' + fullMenu[i].title + '</p><p>' + dish1price*guests + ' SEK</p>');
        }
-
-
-
-        //get total price of the dinner and append it to the toal price element
-
-      /* for(i=0; i<fullMenu.length; i++){
-               totalmoney = totalmoney + fullMenu[i].amount;
-           }*/
 
         this.totalprice.append("<p> The total price is: " + totalmoney*guests + " SEK</p>");
 
