@@ -11,60 +11,66 @@ var View4 = function (container4, model) {
     container4.hide();
 
     this.backButton = container4.find("#backToSelectButton");
-
     this.confirmButton = container4.find("#confirm_dish");
+    $("#loadingContainer2").hide()
 
 
+    this.generateView4 = function () {
 
-    //exampleDish = model.getFullMenu()[1];
+        container4.hide();
+        $("#loadingContainer2").show();
+         guests = model.getNumberOfGuests();
 
-    this.displayIngredients = function () {
+         //exampleDish = model.getDishToDisplay();
 
+            model.getRecipe(model.getDishToDisplay(), function(exampleDish){
 
-    this.guestNumber = $("#ingredientsDiv2");
-    this.imageOfDish = $("#dishImage");
-    this.imageOfText = $("#imageText");
-    this.tableOfIngredients = $("#ingredientsTable");
-    this.costOfIngredients = $("#ingredientsCost");
+                model.setSelectedDish(exampleDish);
 
-    this.guestNumber.empty();
-    this.imageOfDish.empty();
-    this.imageOfText.empty();
-    this.tableOfIngredients.empty();
-    this.costOfIngredients.empty();
+                this.guestNumber = container4.find("#ingredientsDiv2");
+                this.imageOfDish = container4.find("#dishImage");
+                this.imageOfText = container4.find("#imageText");
+                this.tableOfIngredients = container4.find("#ingredientsTable");
+                this.costOfIngredients = container4.find("#ingredientsCost");
 
-     guests = model.getNumberOfGuests();
-
-     exampleDish = model.getDishToDisplay();
-     console.log(exampleDish);
-     selectedDish = model.getDish(exampleDish.id);
-
-    dishImage = "images/" + selectedDish.image;
-    dishDescription = selectedDish.description;
-    dishIngredients = selectedDish.ingredients;
+                this.guestNumber.empty();
+                this.imageOfDish.empty();
+                this.imageOfText.empty();
+                this.tableOfIngredients.empty();
+                this.costOfIngredients.empty();
 
 
-    this.imageOfDish.append('<img class="imgView4" src=' + dishImage + '>');
-    this.imageOfText.append("<p style='padding-bottom: 3% '>" + dishDescription + "</p>");
-    this.guestNumber.append("<h4>Ingredients for " + guests + " people</h4>");
+                dishImage = exampleDish.image;
+                dishDescription = exampleDish.instructions;
+                dishTitle = exampleDish.title;
 
+                dishIngredients = exampleDish.extendedIngredients;
 
+                this.imageOfDish.append('<img class="imgView4" src=' + dishImage + '>');
+                this.imageOfText.append("<h3 style='padding-bottom: 3% '>" + dishTitle + "</h3>");
+                this.imageOfText.append("<p style='padding-bottom: 3% '>" + dishDescription + "</p>");
+                this.guestNumber.append("<h4>Ingredients for " + guests + " people</h4>");
 
-    for(var i=0; i<selectedDish.ingredients.length; i++){
-        this.tableOfIngredients.append(
-            '<tr>' +
-            '<td>' + selectedDish.ingredients[i].quantity*guests + ' ' + selectedDish.ingredients[i].unit +  '</td>' +
-            '<td>' + selectedDish.ingredients[i].name + '</td>' +
-                '<td> SEK </td>' +
-                '<td>' + selectedDish.ingredients[i].price*guests + '</td>' +
-            '</tr>'
-        )
-    }
+                totalPrice = 0;
 
-    //console.log(model.getDishPrice(selectedDish*guests));
-        console.log(selectedDish);
+                for(var i=0; i<dishIngredients.length; i++){
+                    this.tableOfIngredients.append(
+                        '<tr>' +
+                        '<td>' + dishIngredients[i].amount*guests + ' ' + dishIngredients[i].unit +  '</td>' +
+                        '<td>' + dishIngredients[i].name + '</td>' +
+                            '<td> SEK </td>' +
+                            '<td>' + dishIngredients[i].amount*guests + '</td>' +
+                        '</tr>'
+                    )
+                    totalPrice = totalPrice + dishIngredients[i].amount
+                }
 
-    this.costOfIngredients.append("<p>" + model.getDishPrice(selectedDish.id)*guests + "</p><p> SEK </p>" );
+                    //console.log(model.getDishPrice(selectedDish*guests));
+
+             this.costOfIngredients.append("<p>" + totalPrice*guests + "</p><p> SEK </p>" );
+                $("#loadingContainer2").hide();
+                container4.show();
+            })
 
     };
 
@@ -73,10 +79,11 @@ var View4 = function (container4, model) {
         var updateArg = args;
         switch (updateArg){
             case "switchToView4":
-                this.displayIngredients();
+                this.generateView4();
                 break;
             case "numberChanged":
-                this.displayIngredients();
+                this.generateView4();
+                break;
             default:
                 break;
         }

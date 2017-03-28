@@ -6,6 +6,7 @@ var DinnerModel = function() {
 	this.dinnerOptions = [];
 	this.resultOfSearch = "starter";
 	this.dishToDisplay = "";
+	this.selectedDish = '';
 	this.searchFoundValue = '';
 
 	//Lab 3
@@ -27,7 +28,12 @@ var DinnerModel = function() {
 	//in View 4 we want to display the ingredients of the dish that was selected in View3
 	this.getDishToDisplay = function () {
 		return this.dishToDisplay;
-	}
+	};
+
+	this.setDishToDisplay = function(selectedID){
+		this.dishToDisplay = selectedID;
+		this.notify("switchToView4");
+	};
 
 	//in View 3 this tells the view whether we want to see starters, mains or desserts
 	this.getSelectedType = function () {
@@ -42,6 +48,14 @@ var DinnerModel = function() {
 		this.notify("switchToView6")
 	};
 
+	this.setSelectedDish = function (dish) {
+
+		this.selectedDish = dish;
+	};
+
+	this.getSelectedDish = function(){
+		return this.selectedDish;
+	};
 
 	//depending on what we choose is View 3 this updates the variable that stores the starter/ main dish / dessert value
 	this.changeSelectedType = function (searchResult) {
@@ -50,15 +64,7 @@ var DinnerModel = function() {
 
 	};
 
-	this.setDisplayDishDetail = function (buttonClicked) {
-		currentDishes = this.getAllDishes(this.resultOfSearch);
-		this.dishToDisplay = currentDishes[buttonClicked - 1];
-		this.notify("switchToView4");
-	};
 
-	this.getDisplayDishDetail = function () {
-		return (this.dishToDisplay);
-	};
 
 	this.searchFoundFunction = function (searchValue) {
 		this.searchFoundValue = searchValue;
@@ -78,11 +84,10 @@ var DinnerModel = function() {
 
 	// should return 
 	this.getNumberOfGuests = function () {
-		console.log(this.numberOfGuests);
 		return this.numberOfGuests;
 	};
 
-	//Returns the dish that is on the menu for selected type 
+/*	//Returns the dish that is on the menu for selected type
 	this.getSelectedDish = function (type) {
 		var ourMenu = this.getFullMenu();
 		var selected = [];
@@ -92,7 +97,7 @@ var DinnerModel = function() {
 			}
 		}
 		return selected;
-	};
+	};*/
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function () {
@@ -109,7 +114,7 @@ var DinnerModel = function() {
 		return ourIngredients;
 	};
 
-	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
+/*	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function () {
 		this.totalPrice = 0;
 		var guests = this.numberOfGuests;
@@ -121,10 +126,10 @@ var DinnerModel = function() {
 		}
 
 		return this.totalPrice;
-	};
+	};*/
 
 
-	this.getDishPrice = function (dishID) {
+/*	this.getDishPrice = function (dishID) {
 		this.totalCost = 0;
 		//guests = this.numberOfGuests;
 		//console.log(guests);
@@ -145,13 +150,13 @@ var DinnerModel = function() {
 		console.log(this.totalCost);
 		return this.totalCost;
 
-	};
+	};*/
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function (id) {
-		var selectedMeal = this.getDish(id);
-		this.dinnerOptions.push(selectedMeal);
+		//var selectedMeal = this.getDish(id);
+		this.dinnerOptions.push(id);
 		this.notify("addToSideBar");
 	};
 
@@ -170,8 +175,8 @@ var DinnerModel = function() {
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	this.getAllDishes = function (type, filter, cb) {
-		
+/*	this.getAllDishes = function (type, filter, cb) {
+
 		return dishes.filter(function (dish) {
 			var found = true;
 			if (filter) {
@@ -193,20 +198,23 @@ var DinnerModel = function() {
 		console.log("inside callBackAllDishesNew");
 		console.log(dishes);
 		return dishes;
-	};
+	};*/
 
  //new getAllDishes function
 	this.getAllDishesNew = function(type, filter, callBack) {
-			console.log("inside getalldishesnew")
 
 			$.ajax({
-				url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?type=dessert',
+				url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search',
 				headers: {
 					'X-Mashape-Key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
 				},
+				data: {
+					'type' : type,
+					'number' : '6',
+					'query' : filter
+				},
 				success: function (data) {
-					console.log("successful ajax call");
-					callBack(data.results);
+					//callBack(data.results);
 					return callBack(data.results);
 				},
 				error: function (data) {
@@ -215,6 +223,25 @@ var DinnerModel = function() {
 			})
 		return "hello";
 	};
+
+	this.getRecipe = function(id, callBack){
+		$.ajax({
+			url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/' + String(id) + '/information?includeNutrition=false',
+			headers:{
+				'X-Mashape-Key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
+			},
+				data: {
+					'id': String(id)
+				},
+			success: function (data) {
+				callBack(data);
+			},
+			error: function (data) {
+					console.log(data)
+			}
+
+		})
+	}
 
 
 
@@ -227,7 +254,6 @@ var DinnerModel = function() {
 				'X-Mashape-Key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
 			},
 			success: function (data) {
-				console.log(data.results);
 				return data.results;
 			},
 			error: function (data) {

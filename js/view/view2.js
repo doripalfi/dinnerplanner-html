@@ -11,7 +11,7 @@ var View2 = function (container2, model) {
     this.selectGuestsButton = container2.find("#numbPeople");
     this.sideBarTable = container2.find("#sidebarTable");
     this.confirmDinnerButton = container2.find("#confirmDinner");
-
+    this.totalCost = container2.find("#totalCost");
 
 
 
@@ -24,11 +24,20 @@ var View2 = function (container2, model) {
 
         guestNumber = model.getNumberOfGuests();
 
+        totalmoney = 0;
         for(i=0; i<this.totalMenu.length; i++){
-            console.log(model.getDishPrice(this.totalMenu[i].id)*guestNumber);
+            dish1price = 0;
+            for (j=0; j<this.totalMenu[i].extendedIngredients.length; j++){
+               dish1price = dish1price + this.totalMenu[i].extendedIngredients[j].amount
+           }
+            totalmoney = totalmoney + dish1price;
             this.sideBarTable.find('tbody').append(
-                "<tr id='" + this.totalMenu[i].id + "'> <td>" + this.totalMenu[i].name +"</td><td>" + model.getDishPrice(this.totalMenu[i].id)*guestNumber +"</td></tr>"
-        )}
+                "<tr id='" + this.totalMenu[i].id + "'> <td>" + this.totalMenu[i].title +"</td><td>" + dish1price*guestNumber +"</td></tr>"
+        )
+
+            this.totalCost.empty();
+            this.totalCost.append("<h5>" + totalmoney*guestNumber+ " SEK<h5>");
+        }
     };
 
 
@@ -40,7 +49,6 @@ var View2 = function (container2, model) {
                 this.updateSideBarMenu();
                 break;
             case "dishRemoved":
-                console.log("inside dishRemoved");
                 this.updateSideBarMenu();
                 break;
             case "numberChanged":
@@ -50,15 +58,4 @@ var View2 = function (container2, model) {
                 break;
         }
     };
-/*    if(model.update === "numberChanged"){
-        container2.($("#peopleP")).append("<p> adding to people</p>")
-    }*/
-
-    //we need to have an update method in each view
-    //update = funtion(args)
-    //{
-        // function is called in the dinner model notify listeners
-
-    //}
-
 };

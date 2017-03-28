@@ -21,22 +21,11 @@ var stateControl = function(view1, view2, view3, view4, view5, view6) {
     };
 
     var switchTo4 = function(view3, view4){
-        view3.Button1.click(function(){
+
+        view3.dishImages.on('click', ':button', function(){
             view3.container3.hide();
             view4.container4.show();
         });
-
-        view3.Button2.click(function(){
-            view3.container3.hide();
-            view4.container4.show();
-        });
-
-        view3.Button3.click(function(){
-            view3.container3.hide();
-            view4.container4.show();
-        });
-
-
 
     };
 

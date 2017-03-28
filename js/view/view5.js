@@ -36,9 +36,16 @@ var View5 = function (container5, model) {
 
         $("#numberOfGuests").text(text);
 
+       totalmoney = 0;
        for(i=0; i<fullMenu.length; i++) {
-           image = "images/" + fullMenu[i].image;
-           dish1price = model.getDishPrice(fullMenu[i].id);
+           image = fullMenu[i].image;
+           dish1price = 0;
+           for (j=0; j<fullMenu[i].extendedIngredients.length; j++){
+               dish1price = dish1price + fullMenu[i].extendedIngredients[j].amount
+           }
+           totalmoney = totalmoney + dish1price;
+
+           //dish1price = fullMenu[i].amount*guests;
            switch (i) {
                case 2:
                    this.container = this.thirdDish;
@@ -51,34 +58,18 @@ var View5 = function (container5, model) {
                    break;
            }
 
-           this.container.append('<img src=' + image + '> <p>' + fullMenu[i].name + '</p><p>' + dish1price + '</p>');
+           this.container.append('<img src=' + image + '> <p>' + fullMenu[i].title + '</p><p>' + dish1price*guests + ' SEK</p>');
        }
 
 
-/*        //get images for the dishes
-        image1= "images/" + fullMenu[0].image;
-        image2= "images/" + fullMenu[1].image;
-        image3= "images/" + fullMenu[2].image;
-
-        //get dishprice
-        dish1price = model.getDishPrice(fullMenu[0].id);
-        dish2price = model.getDishPrice(fullMenu[1].id);
-        dish3price = model.getDishPrice(fullMenu[2].id);
-
-
-        //this.guestNumber.append("<p style='margin:2%; font-size: 2.5em'> My Dinner:  " + guests + " people </p>");
-
-       console.log(fullMenu[0].name);
-
-        this.firstDish.append('<img src='+ image1 + '> <p>' + fullMenu[0].name + '</p><p>' + dish1price + '</p>');
-
-        this.secondDish.append('<img src='+ image2 + '> <p>' + fullMenu[1].name + '</p><p>' + dish2price + '</p>');
-
-        this.thirdDish.append('<img src='+ image3 + '><p>' + fullMenu[2].name + '</p><p>' + dish3price + '</p>');*/
 
         //get total price of the dinner and append it to the toal price element
-        totalmoney = model.getTotalMenuPrice();
-        this.totalprice.append("<p> The total price is: " + totalmoney + "</p>");
+
+      /* for(i=0; i<fullMenu.length; i++){
+               totalmoney = totalmoney + fullMenu[i].amount;
+           }*/
+
+        this.totalprice.append("<p> The total price is: " + totalmoney*guests + " SEK</p>");
 
     };
 

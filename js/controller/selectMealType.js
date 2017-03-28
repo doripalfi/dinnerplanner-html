@@ -1,25 +1,21 @@
 /**
  * Created by dorapalfi on 24/02/17.
+ * This is for View3
  */
 var selectMealTypeController = function(view, model) {
 
+
+
+    view.dishImages.on('click', ':button', function(){
+        model.setDishToDisplay(this.id);
+       // model.getRecipe(this.id, cb)
+    });
 
     view.selectMealType.on('change', function(){
         selectedMeal = view.selectMealType.val();
         model.changeSelectedType(selectedMeal);
     });
 
-    view.Button1.click( function(){
-        model.setDisplayDishDetail(1);
-    });
-
-    view.Button2.on('click', function(){
-        model.setDisplayDishDetail(2);
-    });
-
-    view.Button3.on('click', function(){
-        model.setDisplayDishDetail(3);
-    });
 
     view.searchButton.click(function(){
         var searchValue = view.searchInput.val();
@@ -27,16 +23,12 @@ var selectMealTypeController = function(view, model) {
 
         var type = model.getSelectedType();
         console.log(type);
-        model.getAllDishes(type, searchValue);
+
+       model.getAllDishes(type, searchValue);
         console.log(model.getAllDishes(type, searchValue));
 
     });
 
-/*    view.searchInput.change(function(){
-        var searchValue = view.searchInput.val();
-        model.getAllDishes(model.resultOfSearch, searchValue);
-        console.log(model.getAllDishes((model.resultOfSearch , "Meat")));
-    });*/
 
     view.searchInput.change(function(){
         var searchValue = view.searchInput.val();
@@ -49,7 +41,4 @@ var selectMealTypeController = function(view, model) {
 
     });
 
-    //  view.start_button.click(function () {
-
-    //  });
 };

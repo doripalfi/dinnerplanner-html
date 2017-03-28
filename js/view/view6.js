@@ -54,18 +54,12 @@ var View6 = function (container6, model) {
         //get dishes using getFullMenu
         fullMenu = model.getFullMenu();
 
-        //get images for the dishes
-       // image1= "images/" + fullMenu[0].image;
 
-
-       /* this.dishPic.append('<img src='+ image1 + '>' );
-        this.dishText.append('<h4>' + fullMenu[0].name + '</h4><p>' + fullMenu[0].description + '</p>');
-        this.dishPrep.append('<h4> Preparation </h4><p>' + fullMenu[0].description + '</p>');
-*/
         for(i=0; i<fullMenu.length; i++) {
                image = "images/" + fullMenu[i].image;
-               dish1price = model.getDishPrice(fullMenu[i].id);
-               switch (i) {
+               //dish1price = model.getDishPrice(fullMenu[i].id);
+                dish1price = 3;
+            switch (i) {
                    case 2:
                        this.dishPic = this.dishPic3;
                        this.dishText = this.dishText3;
@@ -83,9 +77,9 @@ var View6 = function (container6, model) {
                        break;
                }
 
-                this.dishPic.append('<img src='+ "images/"+ fullMenu[i].image + '>');
-                this.dishText.append('<h4>' + fullMenu[i].name + '</h4><p>' + fullMenu[i].description + '</p>');
-                this.dishPrep.append('<h4> Preparation </h4><p>' + fullMenu[i].description + '</p>');
+                this.dishPic.append('<img src='+  fullMenu[i].image + '>');
+                this.dishText.append('<h4>' + fullMenu[i].title + '</h4><p> By ' + fullMenu[i].sourceName + '</p>');
+                this.dishPrep.append('<h4> Preparation </h4><p>' + fullMenu[i].instructions + '</p>');
                  }
      };
 

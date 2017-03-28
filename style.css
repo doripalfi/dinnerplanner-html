@@ -131,7 +131,8 @@ small {
 
 #pageHeader {
 
-	background-color: #ffe680;
+	/*background-color: #ffe680;*/
+	background-color: snow;
 	margin-top: 0px;
 	margin-bottom: 40px;
 	border-bottom: solid black 2px;
@@ -245,4 +246,30 @@ p {
 .recipe {
 
 	margin-bottom: 40px;
+}
+
+/*View 2*/
+#sidebar {
+	margin-bottom: 300px;
+}
+
+/*View 3*/
+#selectedDishes img{
+	border-radius: 8px;
+	width: auto;
+	height: 200px;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+#selectedDishes .imgContainer{
+	align-content: center;
+}
+
+#selectedDishes .col-lg-3{
+	height: 300px;
+	text-align: center;
+	border: 5px solid;
+	border-color: white;
+	background-color: snow;
 }
