@@ -23,7 +23,7 @@ var View3 = function (container3, model) {
 
         selected = model.getSelectedType();
 
-        filter = "";
+        filter = model.searchFilter;
 
         dishImages = container3.find("#selectedDishes");
         dishImages.empty();

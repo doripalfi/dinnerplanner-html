@@ -7,7 +7,7 @@ var DinnerModel = function() {
 	this.resultOfSearch = "starter";
 	this.dishToDisplay = "";
 	this.selectedDish = '';
-	this.searchFoundValue = '';
+	this.searchFilter = '';
 
 	//Lab 3
 	this._listeners = [];
